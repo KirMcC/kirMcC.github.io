@@ -55,36 +55,47 @@ header {
     text-align: center;
 }
 
-
+.work {
+    @include bp(tab-max) {
+        width: 80%;
+    }
+}
 .projects {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    
+    @include bp(tab-max) {
+        justify-content: flex-start;
+    }
     
     .project {
         display: flex;
         position: relative;
         overflow:hidden;
         flex-direction: column;
-        background: green;
         margin: 1rem 0;
-        min-width: 220px;
-        max-width: 353px;
-        max-height: 197px;
-        text-align: center;
         transition: all 1s 0s ease;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
         
-        &:before {
-            height: 100%;
-            width: 100%;
-            top: 0;
-            left: 0;
-            content: '';
-            background: #ffffff;
-            position: absolute;
-            transition: all 0.3s ease-in-out;
-            transform: rotate(106deg) translateY(-150%);
+        @include bp(tab-up) {
+            background: green;
+            min-width: 220px;
+            max-width: 353px;
+            max-height: 197px;
+            text-align: center;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+            
+            &:before {
+                height: 100%;
+                width: 100%;
+                top: 0;
+                left: 0;
+                content: '';
+                background: #ffffff;
+                position: absolute;
+                transition: all 0.3s ease-in-out;
+                transform: rotate(106deg) translateY(-150%);
+            }
         }
 
         &:hover:before {
@@ -95,28 +106,37 @@ header {
 }
 
 figcaption {
-    position: absolute;
-    top: 30%;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    opacity: 0;
-    transition: all 1s 0s ease;
     
-    &:hover {
-        opacity: 1;
+    @include bp(tab-up) {
+        position: absolute;
+        top: 30%;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        opacity: 0;
+        transition: all 1s 0s ease;
+
+        &:hover {
+            opacity: 1;
+        }
     }
-    
+
     h3 {
-        display: inline-block;
         font-size: 1rem;
         text-transform: uppercase;
-        color: white;
+
+        @include bp(tab-up) {
+            display: inline-block;
+            color: white;
+        }
     }
-    
+
     p {
         font-size: 1rem;
-        color: white;
+        @include bp(tab-up) {
+            display: inline-block;
+            color: white;
+        }
     }
 }
 
@@ -124,7 +144,7 @@ figcaption {
     
     img {
         margin-bottom: 2rem;
-        max-width: 22rem;
+        max-width: 100%;
         opacity: 1;
     }
     
