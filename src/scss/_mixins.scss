@@ -1,0 +1,36 @@
+//breakpoint
+@mixin bp($point) {
+    // 361 -> 767
+    @if $point == mobile-large {
+        @media (min-width: map-get($bps, mobileUp)) { @content; }
+    }
+    @else if $point == two-col {
+        @media (min-width: map-get($bps, twoCol)) { @content; }
+    }
+    @else if $point == mob-max {
+        @media (max-width: 500px) { @content; }
+    }
+    @else if $point == tab-max {
+        @media (min-width: 493px) and (max-width: 720px) { @content; }
+    }
+    // 768 -> 1072
+    @else if $point == tab-up {
+        @media (min-width: map-get($bps, tabletUp)) { @content; }
+    }
+    // 1072up
+    @else if $point == dt-up {
+        @media (min-width: map-get($bps, desktopUp)) { @content; }
+    }
+    @else if $point == max-out {
+        @media (min-width: map-get($bps, designMax)) { @content; }
+    }
+}
+
+//Font family
+@mixin header-font {
+    font-family: 'Oxygen';
+}
+
+@mixin main-font {
+    font-family: 'Open Sans';
+}
