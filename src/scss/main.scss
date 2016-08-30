@@ -13,7 +13,7 @@ html {
 body {
     @include main-font;
     margin: 0;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 h3 {
@@ -26,23 +26,56 @@ p, ul li {
 
 a {
     text-decoration: none;
-    color: black;
+    color: map-get($color, black);
+}
+
+.container {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.content-wrap{
+    padding: 5rem 0.5rem;
+
+    @include bp(dt-up) {
+        width: 75%;
+        margin: 0 auto;
+        padding: 5rem 1rem;
+    }
+}
+
+.work-wrap {
+    width: 100%;
 }
 
 
 header {
-    padding: 1.5em 0;
+    padding: 5em 0;
     text-align: center;
+    background-color: map-get($color, lightblue);
+    color: map-get($color, white);
 
     nav {
+        width: 70%;
+        margin: 0 auto;
+        
+        @include bp(tab-up) {
+            width: 30%;
+        }
+
         ul {
             display: flex;
             flex-direction: column;
             list-style: none;
             padding: 0;
 
-            li {
-                flex: 1 1 100%;
+            li > a {
+                width: 100%;
+                border-bottom: 1px dotted;
+                display: block;
+                padding: .3rem 1rem;
+                color: map-get($color, white);
+                font-size: 15px;
             }
         }
     }
@@ -50,16 +83,12 @@ header {
 
 .about {
     width: 100%;
-    background-color: lightblue;
-    color: white;
+    background-color: map-get($color, pink);
+    color: map-get($color, white);
     text-align: center;
 }
 
-.work {
-    @include bp(tab-max) {
-        width: 80%;
-    }
-}
+
 .projects {
     display: flex;
     flex-flow: row wrap;
@@ -74,11 +103,11 @@ header {
         position: relative;
         overflow:hidden;
         flex-direction: column;
-        margin: 1rem 0;
+        margin: 1rem;
         transition: all 1s 0s ease;
         
         @include bp(tab-up) {
-            background: green;
+            background: map-get($color, pink);
             min-width: 220px;
             max-width: 353px;
             max-height: 197px;
@@ -91,7 +120,7 @@ header {
                 top: 0;
                 left: 0;
                 content: '';
-                background: #ffffff;
+                background: map-get($color, lightpurple);
                 position: absolute;
                 transition: all 0.3s ease-in-out;
                 transform: rotate(106deg) translateY(-150%);
@@ -109,11 +138,12 @@ figcaption {
     
     @include bp(tab-up) {
         position: absolute;
-        top: 30%;
+        top: 15%;
         left: 0;
         bottom: 0;
         right: 0;
         opacity: 0;
+        padding: 1rem 2rem;
         transition: all 1s 0s ease;
 
         &:hover {
@@ -122,17 +152,16 @@ figcaption {
     }
 
     h3 {
-        font-size: 1rem;
+        font-size: 0.8rem;
         text-transform: uppercase;
 
         @include bp(tab-up) {
-            display: inline-block;
-            color: white;
+            color: map-get($color, white);
         }
     }
 
     p {
-        font-size: 1rem;
+        font-size: 0.8rem;
         @include bp(tab-up) {
             display: inline-block;
             color: white;
@@ -155,24 +184,8 @@ figcaption {
 
 .skills {
     width: 100%;
-    background-color: lightseagreen;
+    background-color: map-get($color, orange);
     color: white;
-}
-
-
-section {
-    margin: 0 auto;
-    padding: 5em 1em;
-    
-    .content-wrap{
-        @include bp(dt-up) {
-            width: 60%;
-            margin: 0 auto;
-        }
-    }
-    @include bp(dt-up) {
-        width: 80%;
-    } 
 }
 
 .contact {
