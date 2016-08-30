@@ -16,6 +16,12 @@ body {
     font-size: 18px;
 }
 
+h1.sitename {
+    text-shadow: 6px 0px 0px rgba(168,212,215,0.7), -6px 0px 0px rgba(219,89,181,0.7), -12px 0px 0px rgba(147,95,199,0.7);
+    font-size: 16vmin;
+    font-family: 'Righteous', cursive;
+}
+
 h3 {
     margin: 0;
 }
@@ -30,6 +36,9 @@ a {
 }
 
 .container {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
     width: 85%;
     margin: 0 auto;
 }
@@ -46,6 +55,7 @@ a {
 
 .work-wrap {
     width: 100%;
+    color: map-get($color, darkgrey);
 }
 
 
@@ -54,31 +64,38 @@ header {
     text-align: center;
     background-color: map-get($color, lightblue);
     color: map-get($color, white);
+}
 
-    nav {
-        width: 70%;
-        margin: 0 auto;
-        
-        @include bp(tab-up) {
-            width: 30%;
-        }
+nav {
+    width: 70%;
+    margin: 0 auto;
 
-        ul {
-            display: flex;
-            flex-direction: column;
-            list-style: none;
-            padding: 0;
+    @include bp(tab-up) {
+        width: 30%;
+    }
 
-            li > a {
+    ul {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        padding: 0;
+
+        li {
+            &:hover {
+                background-color: map-get($color, green);
+            }
+
+            a {
                 width: 100%;
                 border-bottom: 1px dotted;
                 display: block;
                 padding: .3rem 1rem;
                 color: map-get($color, white);
                 font-size: 15px;
+                cursor: pointer;
             }
-        }
     }
+}
 }
 
 .about {
@@ -93,7 +110,6 @@ header {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    
     @include bp(tab-max) {
         justify-content: flex-start;
     }
@@ -154,6 +170,7 @@ figcaption {
     h3 {
         font-size: 0.8rem;
         text-transform: uppercase;
+        color: map-get($color, darkgrey);
 
         @include bp(tab-up) {
             color: map-get($color, white);
@@ -162,6 +179,7 @@ figcaption {
 
     p {
         font-size: 0.8rem;
+        color: map-get($color, lightgrey);
         @include bp(tab-up) {
             display: inline-block;
             color: white;
@@ -184,8 +202,16 @@ figcaption {
 
 .skills {
     width: 100%;
-    background-color: map-get($color, orange);
+    background-color: map-get($color, lightpurple);
     color: white;
+}
+
+.workex {
+    color: map-get($color, lightgrey);
+
+    h2{
+     color: map-get($color, darkgrey);   
+    }
 }
 
 .contact {
