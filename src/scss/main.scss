@@ -19,7 +19,7 @@ body {
 h1.sitename {
     text-shadow: 6px 0px 0px rgba(168,212,215,0.7), -6px 0px 0px rgba(219,89,181,0.7), -12px 0px 0px rgba(147,95,199,0.7);
     font-size: 16vmin;
-    font-family: 'Righteous', cursive;
+    @include header-font;
 }
 
 h3 {
@@ -202,7 +202,7 @@ figcaption {
 
 .skills {
     width: 100%;
-    background-color: map-get($color, lightpurple);
+    background-color: map-get($color, green);
     color: white;
 }
 
